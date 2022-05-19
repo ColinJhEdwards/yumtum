@@ -25,13 +25,13 @@ interface apiResults {
 const RandomRecipes = () => {
   // store apiKey in variable, accessed from dotenv file
   const apiKey = process.env.REACT_APP_APIKEY;
-  const [recipes, setRecipes] = useState<apiResults[]>([]);
+  const [recipes, setRecipes] = useState<RandomRec[]>([]);
   //   perform a fetch using axios.get with url for random recipes, insert interface for results
-  const randomSearch = async () => {
-    const results = await axios.get<apiResults[]>(
+  const randomSearch = async (): Promise<RandomRec[]> => {
+    const results = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=10`
     );
-    setRecipes(results.data);
+    return (await results.json()).results;
   };
   console.log(recipes);
 
