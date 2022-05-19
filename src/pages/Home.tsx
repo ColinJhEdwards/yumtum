@@ -1,11 +1,13 @@
 import React from "react";
 import RandomRecipes from "../components/RandomRecipes";
+import SearchRecipe from "../components/SearchRecipe";
 
 const Home: React.FC = () => {
   return (
     <section>
       <div className="home">
-        <RandomRecipes />
+        <SearchRecipe />
+        {/* <RandomRecipes /> */}
       </div>
     </section>
   );
