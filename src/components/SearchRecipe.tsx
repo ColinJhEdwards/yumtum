@@ -1,15 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { BiSearchAlt } from "react-icons/bi";
+import RecipeCard from "./RecipeCard";
+
+interface RecipeInfo {
+  id: number;
+  image: string;
+  title: string;
+}
 
 function SearchRecipe() {
+  const apiKey = process.env.REACT_APP_APIKEY;
+  const [search, setSearch] = useState("");
+  const [recipes, setRecipes] = useState<RecipeInfo[]>([]);
+
+  const recipeSearch = async (searchValue: string): Promise<RecipeInfo[]> => {
+    const results = await fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchValue}&number=10`
+    );
+    return (await results.json()).results;
+  };
+
+  const searchHandler = async () => {
+    const data = await recipeSearch(search);
+    setRecipes(data);
+  };
+
+  console.log(recipes);
+
   return (
     <StyledSearch className="searchSection">
       <div className="input">
-        <input type="text" placeholder="Search..." />
-        <button>Search</button>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button onClick={() => searchHandler()}>
+          <BiSearchAlt />
+        </button>
       </div>
       <div className="content">
-        <h2>Stuff fo here</h2>
+        {recipes.map((rec) => (
+          <RecipeCard
+            key={rec.id}
+            id={rec.id}
+            image={rec.image}
+            title={rec.title}
+          />
+        ))}
       </div>
     </StyledSearch>
   );
@@ -36,10 +76,11 @@ const StyledSearch = styled.section`
       background: orange;
       border: none;
       border-radius: 5px;
-      transition: all ease 0.5s;
+      transition: all ease 0.3s;
+      font-size: 1.2rem;
       cursor: pointer;
       &:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
     }
   }
