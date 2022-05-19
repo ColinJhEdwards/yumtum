@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FormEventHandler } from "react";
 import styled from "styled-components";
 import { BiSearchAlt } from "react-icons/bi";
 import RecipeCard from "./RecipeCard";
@@ -41,6 +41,7 @@ function SearchRecipe() {
           placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          required
         />
         <button onClick={() => searchHandler()}>
           <BiSearchAlt />

@@ -13,15 +13,6 @@ interface RandomRec {
   instructions: string;
 }
 
-interface apiResults {
-  config: {};
-  data: {};
-  headers: {};
-  request: {};
-  status: number;
-  statusText: string;
-}
-
 const RandomRecipes = () => {
   // store apiKey in variable, accessed from dotenv file
   const apiKey = process.env.REACT_APP_APIKEY;
@@ -36,7 +27,10 @@ const RandomRecipes = () => {
   console.log(recipes);
 
   useEffect(() => {
-    randomSearch();
+    async () => {
+      const data = await randomSearch();
+      setRecipes(data);
+    };
   }, []);
 
   return <div></div>;
