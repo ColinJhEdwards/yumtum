@@ -20,12 +20,12 @@ function SearchRecipe() {
   // return the data that matches the interface created above
   const recipeSearch = async (searchValue: string): Promise<RecipeInfo[]> => {
     const results = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchValue}&number=10`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchValue}&number=15`
     );
     return (await results.json()).results;
   };
 
-  // this function will run when the search button is clicked
+  // this function will run when the form is submitted
   const searchHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = await recipeSearch(search);
@@ -99,9 +99,7 @@ const StyledSearch = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* grid-template-columns: repeat(autofit, minmax(500px, 1fr));
-    grid-column-gap: 3rem;
-    grid-row-gap: 3rem; */
+    align-items: center;
   }
 `;
 

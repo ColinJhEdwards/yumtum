@@ -15,30 +15,57 @@ const RecipeCard: FunctionComponent<PropInfo> = ({
   title,
 }: PropInfo) => {
   return (
-    <StyledCard>
-      <img src={image || placeholder} alt={title} />
-      <h2>{title}</h2>
-    </StyledCard>
+    <Hide>
+      <StyledCard>
+        <img src={image || placeholder} alt={title} />
+        <h2>{title}</h2>
+        <Gradient />
+      </StyledCard>
+    </Hide>
   );
 };
 
 const StyledCard = styled.div`
-  margin: 0rem 3rem;
-
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 300px;
+  height: 250px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
 
   img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
   }
   h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     width: 80%;
     margin: auto;
-    color: black;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 3;
   }
+`;
+
+const Gradient = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+  border-radius: 5px;
+`;
+
+const Hide = styled.div`
+  margin: 1rem 0rem;
+  overflow: hidden;
+  border-radius: 10px;
 `;
 
 export default RecipeCard;
