@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEventHandler } from "react";
+import React, { useState, useEffect, FormEventHandler, FormEvent } from "react";
 import styled from "styled-components";
 import { BiSearchAlt } from "react-icons/bi";
 import RecipeCard from "./RecipeCard";
@@ -26,7 +26,8 @@ function SearchRecipe() {
   };
 
   // this function will run when the search button is clicked
-  const searchHandler = async () => {
+  const searchHandler = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const data = await recipeSearch(search);
     setRecipes(data);
   };
@@ -36,16 +37,18 @@ function SearchRecipe() {
   return (
     <StyledSearch className="searchSection">
       <div className="input">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          required
-        />
-        <button onClick={() => searchHandler()}>
-          <BiSearchAlt />
-        </button>
+        <form onSubmit={(e) => searchHandler(e)}>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            required
+          />
+          <button>
+            <BiSearchAlt />
+          </button>
+        </form>
       </div>
       <div className="content">
         {recipes.map((rec) => (
