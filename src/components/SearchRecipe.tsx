@@ -38,16 +38,18 @@ function SearchRecipe() {
     <StyledSearch className="searchSection">
       <div className="input">
         <form onSubmit={(e) => searchHandler(e)}>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            required
-          />
-          <button>
-            <BiSearchAlt />
-          </button>
+          <div>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              required
+            />
+            <button>
+              <BiSearchAlt />
+            </button>
+          </div>
         </form>
       </div>
       <div className="content">
@@ -72,26 +74,33 @@ const StyledSearch = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    div {
+      position: relative;
+      width: 100%;
+    }
     input {
       font-size: 1.5rem;
-      border-radius: 5px;
+      border-radius: 50px;
       border: none;
-      margin: 2rem 1rem;
-      padding: 1rem;
-      border: orange solid 2.5px;
+      margin: 2rem 0rem;
+      padding: 1rem 3rem;
+      color: white;
+      border: none;
+      outline: none;
+      background: linear-gradient(35deg, #494949, #313131);
     }
     button {
-      padding: 1rem;
-      background: linear-gradient(35deg, orange, #815502);
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(100%, -50%);
+      background: transparent;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       transition: all ease 0.3s;
       font-size: 1.2rem;
+      color: white;
       cursor: pointer;
-      &:hover {
-        transform: scale(1.1);
-        color: white;
-      }
     }
   }
   .content {

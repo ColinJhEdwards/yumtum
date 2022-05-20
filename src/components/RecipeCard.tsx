@@ -42,7 +42,7 @@ const StyledCard = styled.div`
     border-radius: 10px;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     width: 80%;
     margin: auto;
     color: white;
@@ -63,7 +63,7 @@ const Gradient = styled.div`
 `;
 
 const Hide = styled.div`
-  margin: 1rem 0rem;
+  margin: 1rem;
   overflow: hidden;
   border-radius: 10px;
 `;
