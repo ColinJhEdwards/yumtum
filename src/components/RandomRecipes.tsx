@@ -68,7 +68,7 @@ const RandomRecipes = () => {
 };
 
 const StyledRandoms = styled.div`
-  margin: 2rem 0rem;
+  margin: 5rem 0rem;
   .text {
     text-align: center;
     margin: 1rem 0rem;
