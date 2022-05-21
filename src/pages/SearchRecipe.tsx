@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import { useParams } from "react-router-dom";
-// import RecipeCard from "./RecipeCard";
+import styled from "styled-components";
+import RecipeCard from "../components/RecipeCard";
 
 // creating an interface for expected results from api call
 interface RecipeInfo {
@@ -14,8 +15,9 @@ function SearchRecipe() {
   const { value } = useParams<{ value: string | undefined }>();
   // accessing api key stored in dot env file
   const apiKey = process.env.REACT_APP_APIKEY;
-  const [search, setSearch] = useState("");
+  // useState for storing recipes with typescript interface
   const [recipes, setRecipes] = useState<RecipeInfo[]>([]);
+  //
 
   // creating an async function to perform a fetch using api url. Also assigning a function type of Promise that will
   // return the data that matches the interface created above
@@ -34,14 +36,16 @@ function SearchRecipe() {
       setRecipes(data);
     };
     setData();
-  }, []);
+  }, [value]);
 
   console.log(recipes);
 
   return (
-    <div>
-      <h2>TEST</h2>
-      {/* <div className="content">
+    <StyledRecipes>
+      <div className="title">
+        <h1>{value} Recipes</h1>
+      </div>
+      <div className="content">
         {recipes.map((rec) => (
           <RecipeCard
             key={rec.id}
@@ -50,17 +54,21 @@ function SearchRecipe() {
             title={rec.title}
           />
         ))}
-      </div> */}
-    </div>
+      </div>
+    </StyledRecipes>
   );
 }
 
-// .content {
-//     min-height: 100vh;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-around;
-//     align-items: center;
-//   }
+const StyledRecipes = styled.div`
+  .title {
+  }
+  .content {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+`;
 
 export default SearchRecipe;
