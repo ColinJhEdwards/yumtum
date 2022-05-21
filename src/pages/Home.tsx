@@ -1,12 +1,16 @@
 import React from "react";
 import RandomRecipes from "../components/RandomRecipes";
 import styled from "styled-components";
+import VeggieRecipes from "../components/VeggieRecipes";
 
 const Home: React.FC = () => {
   return (
     <StyledHome>
       <div className="random">
         <RandomRecipes />
+      </div>
+      <div className="veggie">
+        <VeggieRecipes />
       </div>
     </StyledHome>
   );

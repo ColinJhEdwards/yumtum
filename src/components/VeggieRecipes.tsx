@@ -5,7 +5,7 @@ import placeholder from "../images/placeholder.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
-interface RandomRec {
+interface VeggieRec {
   id: number;
   title: string;
   readyInMinutes: number;
@@ -15,32 +15,34 @@ interface RandomRec {
   instructions: string;
 }
 
-const RandomRecipes = () => {
+const VeggieRecipes = () => {
   // store apiKey in variable, accessed from dotenv file
   const apiKey = process.env.REACT_APP_APIKEY;
-  const [recipes, setRecipes] = useState<RandomRec[]>([]);
-  // perform a fetch with url for random recipes, giving function type of promise and inserting interface for results
-  const randomSearch = async (): Promise<RandomRec[]> => {
+  const [recipes, setRecipes] = useState<VeggieRec[]>([]);
+  // perform a fetch with url for Veggie recipes, giving function type of promise and inserting interface for results
+  const veggieSearch = async (): Promise<VeggieRec[]> => {
     const results = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=15`
+      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&tags=vegetarian&number=15`
     );
     return (await results.json()).recipes;
   };
 
   useEffect(() => {
     const setData = async () => {
-      const data = await randomSearch();
+      const data = await veggieSearch();
       setRecipes(data);
     };
     setData();
   }, []);
 
+  console.log(recipes);
+
   return (
     <StyledRandoms>
-      <h2>Random Recipes</h2>
+      <h2>Vegetarian Recipes</h2>
       <Splide
         options={{
-          perPage: 3,
+          perPage: 5,
           arrows: false,
           pagination: true,
           drag: "free",
@@ -49,7 +51,7 @@ const RandomRecipes = () => {
       >
         {recipes.map((r) => (
           <SplideSlide key={r.id}>
-            <Card className="randomcards" key={r.id}>
+            <Card className="veggiecards" key={r.id}>
               <img src={r.image || placeholder} alt={r.title} />
               <Gradient />
               <h2>{r.title}</h2>
@@ -102,4 +104,4 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
-export default RandomRecipes;
+export default VeggieRecipes;
