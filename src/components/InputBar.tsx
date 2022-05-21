@@ -1,4 +1,5 @@
-import React, { useState, useEffect, FormEventHandler, FormEvent } from "react";
+import React, { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BiSearchAlt } from "react-icons/bi";
 import RecipeCard from "./RecipeCard";
@@ -10,9 +11,10 @@ interface RecipeInfo {
   title: string;
 }
 
-function SearchRecipe() {
+function InputBar() {
   // accessing api key stored in dot env file
   const apiKey = process.env.REACT_APP_APIKEY;
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [recipes, setRecipes] = useState<RecipeInfo[]>([]);
 
@@ -112,4 +114,4 @@ const StyledSearch = styled.section`
   }
 `;
 
-export default SearchRecipe;
+export default InputBar;

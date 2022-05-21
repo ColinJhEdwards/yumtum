@@ -29,7 +29,7 @@ const StyledCard = styled.div`
   position: relative;
   width: 300px;
   height: 250px;
-  transition: all ease 0.3s;
+  transition: all ease 0.5s;
   cursor: pointer;
   &:hover {
     transform: scale(1.2);
