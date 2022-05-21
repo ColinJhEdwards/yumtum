@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import placeholder from "../images/placeholder.png";
 // using splide library to create slider effect
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
 
 interface RandomRec {
   id: number;
@@ -37,19 +39,67 @@ const RandomRecipes = () => {
 
   return (
     <StyledRandoms>
-      {recipes.map((r) => (
-        <div className="randomcards" key={r.id}>
-          <img src={r.image} alt={r.title} />
-          <h2>{r.title}</h2>
-        </div>
-      ))}
+      <Splide
+        options={{
+          perPage: 3,
+          arrows: false,
+          pagination: true,
+          drag: "free",
+          gap: "3rem",
+        }}
+      >
+        {recipes.map((r) => (
+          <SplideSlide>
+            <Card className="randomcards" key={r.id}>
+              <img src={r.image || placeholder} alt={r.title} />
+              <Gradient />
+              <h2>{r.title}</h2>
+            </Card>
+          </SplideSlide>
+        ))}
+      </Splide>
     </StyledRandoms>
   );
 };
 
 const StyledRandoms = styled.div`
-  display: flex;
-  overflow-x: scroll;
+  .randomCards {
+    cursor: pointer;
+  }
+`;
+
+const Card = styled.div`
+  cursor: grab;
+  min-height: 25rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  img {
+    border-radius: 2rem;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  h2 {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    bottom: 20%;
+  }
+`;
+
+const Gradient = styled.div`
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
 export default RandomRecipes;

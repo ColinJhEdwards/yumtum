@@ -17,7 +17,7 @@ const RecipeCard: FunctionComponent<PropInfo> = ({
   return (
     <Hide>
       <StyledCard>
-        <img src={image || placeholder} alt={title} />
+        <img src={image || placeholder} alt={title} loading="lazy" />
         <h2>{title}</h2>
         <Gradient />
       </StyledCard>
