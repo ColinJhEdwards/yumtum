@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const Nav: React.FC = () => {
   return (
     <StyledNav>
       <nav>
-        <h2 id="logo">Yumtum</h2>
+        <NavLink to="/">
+          <h2 id="logo">Yumtum</h2>
+        </NavLink>
       </nav>
     </StyledNav>
   );

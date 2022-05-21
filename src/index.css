@@ -6,9 +6,21 @@
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 #logo {
   font-family: "Lobster", cursive;
+  font-size: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+  transition: all ease 0.5s;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
 }

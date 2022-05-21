@@ -61,6 +61,9 @@ function SearchRecipe() {
 
 const StyledRecipes = styled.div`
   .title {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0rem;
   }
   .content {
     min-height: 100vh;
