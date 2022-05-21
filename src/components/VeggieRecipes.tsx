@@ -43,7 +43,7 @@ const VeggieRecipes = () => {
       <Splide
         options={{
           perPage: 5,
-          arrows: false,
+          arrows: true,
           pagination: true,
           drag: "free",
           gap: "3rem",
@@ -76,6 +76,10 @@ const Card = styled.div`
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  transition: all ease 0.3s;
+  &:hover {
+    transform: translateY(-10px);
+  }
   img {
     border-radius: 2rem;
     position: absolute;

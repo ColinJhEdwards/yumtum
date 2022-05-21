@@ -37,11 +37,17 @@ const RandomRecipes = () => {
 
   return (
     <StyledRandoms>
-      <h2>Random Recipes</h2>
+      <div className="text">
+        <h2>Popular Recipes</h2>
+        <p id="bottom">
+          Why not try out one of these brand-new recipes, freshly made by our
+          Yumtum users.
+        </p>
+      </div>
       <Splide
         options={{
           perPage: 3,
-          arrows: false,
+          arrows: true,
           pagination: true,
           drag: "free",
           gap: "3rem",
@@ -63,19 +69,32 @@ const RandomRecipes = () => {
 
 const StyledRandoms = styled.div`
   margin: 2rem 0rem;
-  h2 {
-    margin: 2rem 0rem;
+  .text {
+    text-align: center;
+    margin: 1rem 0rem;
+    h2 {
+      font-size: 3rem;
+      margin: 1rem 0rem;
+    }
+    #bottom {
+      color: orange;
+      font-weight: bold;
+    }
   }
 `;
 
 const Card = styled.div`
   cursor: grab;
   min-height: 25rem;
-  border-radius: 2rem;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
+  transition: all ease 0.3s;
+  &:hover {
+    transform: translateY(-10px);
+  }
   img {
-    border-radius: 2rem;
+    border-radius: 5px;
     position: absolute;
     left: 0;
     width: 100%;
