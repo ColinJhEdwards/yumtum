@@ -38,8 +38,6 @@ function SearchRecipe() {
     setData();
   }, [value]);
 
-  console.log(recipes);
-
   return (
     <StyledRecipes>
       <div className="title">

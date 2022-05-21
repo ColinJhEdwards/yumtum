@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import RecipeCard from "./RecipeCard";
+// using splide library to create slider effect
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 interface RandomRec {
-  id: string;
+  id: number;
   title: string;
   readyInMinutes: number;
   sourceUrl: string;
@@ -20,19 +20,36 @@ const RandomRecipes = () => {
   // perform a fetch with url for random recipes, giving function type of promise and inserting interface for results
   const randomSearch = async (): Promise<RandomRec[]> => {
     const results = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=10`
+      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=15`
     );
-    return (await results.json()).results;
+    return (await results.json()).recipes;
   };
 
   useEffect(() => {
-    async () => {
+    const setData = async () => {
       const data = await randomSearch();
       setRecipes(data);
     };
+    setData();
   }, []);
 
-  return <div></div>;
+  console.log(recipes);
+
+  return (
+    <StyledRandoms>
+      {recipes.map((r) => (
+        <div className="randomcards" key={r.id}>
+          <img src={r.image} alt={r.title} />
+          <h2>{r.title}</h2>
+        </div>
+      ))}
+    </StyledRandoms>
+  );
 };
+
+const StyledRandoms = styled.div`
+  display: flex;
+  overflow-x: scroll;
+`;
 
 export default RandomRecipes;
