@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Nav: React.FC = () => {
   const [logoHover, setLogoHover] = useState(true);
@@ -8,13 +9,15 @@ const Nav: React.FC = () => {
     <StyledNav>
       <nav>
         <NavLink to="/">
-          <h2
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             id="logo"
             onMouseEnter={() => setLogoHover(false)}
             onMouseLeave={() => setLogoHover(true)}
           >
             {logoHover ? "Yumtum" : "Yummy In My Tummy"}
-          </h2>
+          </motion.h2>
         </NavLink>
       </nav>
     </StyledNav>

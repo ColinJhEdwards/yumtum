@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import NoResultMessage from "../components/NoResultMessage";
 import RecipeCard from "../components/RecipeCard";
 
 // creating an interface for expected results from api call
@@ -38,20 +39,26 @@ function SearchRecipe() {
     setData();
   }, [value]);
 
+  console.log(`this one ${recipes}`);
+
   return (
     <StyledRecipes>
       <div className="title">
         <h1>{value} Recipes</h1>
       </div>
       <div className="content">
-        {recipes.map((rec) => (
-          <RecipeCard
-            key={rec.id}
-            id={rec.id}
-            image={rec.image}
-            title={rec.title}
-          />
-        ))}
+        {recipes.length > 0 ? (
+          recipes.map((rec) => (
+            <RecipeCard
+              key={rec.id}
+              id={rec.id}
+              image={rec.image}
+              title={rec.title}
+            />
+          ))
+        ) : (
+          <NoResultMessage searchValue={value} />
+        )}
       </div>
     </StyledRecipes>
   );
@@ -64,7 +71,7 @@ const StyledRecipes = styled.div`
     margin: 3rem 0rem;
   }
   .content {
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
