@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 
 interface PropInfo {
   searchValue: string | undefined;
@@ -8,9 +9,16 @@ interface PropInfo {
 
 const NoResultMessage = ({ searchValue }: PropInfo) => {
   return (
-    <StyledCard>
+    <StyledCard
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2>No yum for your tum!</h2>
-      <p>Sorry we could not find any recipes for {searchValue}</p>
+      <GiForkKnifeSpoon />
+      <p>
+        Sorry we could not find any recipes for <span>{searchValue}</span>.
+      </p>
     </StyledCard>
   );
 };
@@ -22,9 +30,21 @@ const StyledCard = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 20vh;
+  height: 30vh;
   width: 30%;
   h2 {
+    color: orange;
+  }
+  svg {
+    font-size: 4rem;
+
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  }
+  p {
+    font-weight: bold;
+    color: #5a5a5a;
+  }
+  span {
     color: orange;
   }
 `;
