@@ -13,6 +13,7 @@ interface RecipeInfo {
 
 function SearchRecipe() {
   // using react-router hook useParams to grab value of search value to perform api call.
+  // value is found in App.tsx route section to={/search/:value}
   const { value } = useParams<{ value: string | undefined }>();
   // accessing api key stored in dot env file
   const apiKey = process.env.REACT_APP_APIKEY;
@@ -38,8 +39,6 @@ function SearchRecipe() {
     };
     setData();
   }, [value]);
-
-  console.log(`this one ${recipes}`);
 
   return (
     <StyledRecipes>

@@ -76,9 +76,11 @@ const Card = styled.div`
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
-  transition: all ease 0.3s;
+
   &:hover {
-    transform: translateY(-10px);
+    img {
+      transform: scale(1.2);
+    }
   }
   img {
     border-radius: 2rem;
@@ -87,6 +89,7 @@ const Card = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all ease 0.5s;
   }
   h2 {
     width: 100%;
