@@ -40,7 +40,7 @@ const RandomRecipes = () => {
       <div className="text">
         <h2>Popular Recipes</h2>
         <p id="bottom">
-          Why not try out one of these brand-new recipes, freshly made by our
+          Why not try out one of these popular recipes, freshly made by our
           Yumtum users.
         </p>
       </div>
