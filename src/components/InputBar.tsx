@@ -12,6 +12,7 @@ function InputBar() {
   const searchHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/search/${searchVal}`);
+    setSearchVal("");
   };
 
   return (

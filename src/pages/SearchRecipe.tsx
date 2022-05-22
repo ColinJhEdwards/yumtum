@@ -72,6 +72,8 @@ const StyledRecipes = styled.div`
   }
   .content {
     min-height: 40vh;
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
