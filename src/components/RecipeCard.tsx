@@ -29,10 +29,12 @@ const StyledCard = styled.div`
   position: relative;
   width: 300px;
   height: 250px;
-  transition: all ease 0.5s;
+
   cursor: pointer;
   &:hover {
-    transform: scale(1.2);
+    img {
+      transform: scale(1.2);
+    }
   }
 
   img {
@@ -40,6 +42,7 @@ const StyledCard = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    transition: all ease 0.5s;
   }
   h2 {
     font-size: 1.2rem;
@@ -60,6 +63,10 @@ const Gradient = styled.div`
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   border-radius: 5px;
+  transition: all ease 0.5s;
+  &:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0), #8a5a028f);
+  }
 `;
 
 const Hide = styled.div`

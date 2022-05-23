@@ -86,7 +86,7 @@ const StyledRandoms = styled.div`
 const Card = styled.div`
   cursor: grab;
   min-height: 25rem;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 
@@ -96,7 +96,7 @@ const Card = styled.div`
     }
   }
   img {
-    border-radius: 5px;
+    border-radius: 10px;
     position: absolute;
     left: 0;
     width: 100%;
