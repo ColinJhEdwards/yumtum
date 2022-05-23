@@ -89,7 +89,8 @@ const Card = styled.div`
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-
+  margin: 1rem 0.5rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   &:hover {
     img {
       transform: scale(1.2);
