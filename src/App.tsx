@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import SearchRecipe from "./pages/SearchRecipe";
 import Cuisines from "./components/Cuisines";
+import SelectedCuisine from "./pages/SelectedCuisine";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search/:value" element={<SearchRecipe />} />
+        <Route path="/cuisine/:value" element={<SelectedCuisine />} />
       </Routes>
     </div>
   );

@@ -2,14 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { FaHamburger, FaPizzaSlice } from "react-icons/fa";
 import { GiChopsticks, GiTacos, GiCroissant } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 
 function Cuisines() {
   return (
     <StyledIcons>
-      <div className="icon">
-        <FaHamburger />
-        <p>American</p>
-      </div>
+      <NavLink to="/cuisine/american">
+        <div className="icon">
+          <FaHamburger />
+          <p>American</p>
+        </div>
+      </NavLink>
       <div className="icon">
         <GiChopsticks />
         <p>Chinese</p>
@@ -34,6 +37,11 @@ const StyledIcons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
   .icon {
     display: flex;
     flex-direction: column;
@@ -55,6 +63,7 @@ const StyledIcons = styled.div`
     svg {
       font-size: 2rem;
     }
+
     p {
       font-size: 0.7rem;
       margin-top: 0.5rem;

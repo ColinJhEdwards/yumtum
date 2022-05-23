@@ -19,7 +19,6 @@ function SearchRecipe() {
   const apiKey = process.env.REACT_APP_APIKEY;
   // useState for storing recipes with typescript interface
   const [recipes, setRecipes] = useState<RecipeInfo[]>([]);
-  //
 
   // creating an async function to perform a fetch using api url. Also assigning a function type of Promise that will
   // return the data that matches the interface created above
