@@ -17,7 +17,7 @@ const NoResultMessage = ({ searchValue }: PropInfo) => {
       <h2>No yum for your tum!</h2>
       <GiForkKnifeSpoon />
       <p>
-        Sorry we could not find any recipes for <span>{searchValue}</span>.
+        Sorry we couldn't find any recipes for <span>{searchValue}</span>.
       </p>
     </StyledCard>
   );

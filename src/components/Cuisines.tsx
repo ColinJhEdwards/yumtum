@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaHamburger, FaPizzaSlice } from "react-icons/fa";
-import { GiChopsticks, GiTacos, GiCroissant } from "react-icons/gi";
+import { GiChopsticks, GiTomato, GiCroissant } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 
 function Cuisines() {
@@ -25,10 +25,10 @@ function Cuisines() {
           <p>Italian</p>
         </div>
       </NavLink>
-      <NavLink to="/cuisine/mexican">
+      <NavLink to="/cuisine/spanish">
         <div className="icon">
-          <GiTacos />
-          <p>Mexican</p>
+          <GiTomato />
+          <p>Spanish</p>
         </div>
       </NavLink>
       <NavLink to="/cuisine/french">

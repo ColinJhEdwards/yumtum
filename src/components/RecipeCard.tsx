@@ -64,6 +64,7 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   border-radius: 5px;
   transition: all ease 0.5s;
+
   &:hover {
     background: linear-gradient(rgba(0, 0, 0, 0), #8a5a028f);
   }
@@ -73,6 +74,7 @@ const Hide = styled.div`
   margin: 1rem;
   overflow: hidden;
   border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 `;
 
 export default RecipeCard;
