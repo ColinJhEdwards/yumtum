@@ -13,22 +13,30 @@ function Cuisines() {
           <p>American</p>
         </div>
       </NavLink>
-      <div className="icon">
-        <GiChopsticks />
-        <p>Chinese</p>
-      </div>
-      <div className="icon">
-        <FaPizzaSlice />
-        <p>Italian</p>
-      </div>
-      <div className="icon">
-        <GiTacos />
-        <p>Mexican</p>
-      </div>
-      <div className="icon">
-        <GiCroissant />
-        <p>French</p>
-      </div>
+      <NavLink to="/cuisine/chinese">
+        <div className="icon">
+          <GiChopsticks />
+          <p>Chinese</p>
+        </div>
+      </NavLink>
+      <NavLink to="/cuisine/italian">
+        <div className="icon">
+          <FaPizzaSlice />
+          <p>Italian</p>
+        </div>
+      </NavLink>
+      <NavLink to="/cuisine/mexican">
+        <div className="icon">
+          <GiTacos />
+          <p>Mexican</p>
+        </div>
+      </NavLink>
+      <NavLink to="/cuisine/french">
+        <div className="icon">
+          <GiCroissant />
+          <p>French</p>
+        </div>
+      </NavLink>
     </StyledIcons>
   );
 }
