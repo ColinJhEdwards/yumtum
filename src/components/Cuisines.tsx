@@ -49,7 +49,12 @@ const StyledIcons = styled.div`
   a {
     text-decoration: none;
   }
-
+  /* NavLink by default has an active class assigned to selected element, using this feature to style icon user selects */
+  .active {
+    .icon {
+      background: linear-gradient(35deg, orange, #313131);
+    }
+  }
   .icon {
     display: flex;
     flex-direction: column;
@@ -68,6 +73,7 @@ const StyledIcons = styled.div`
       color: black;
       transform: translateY(-10px);
     }
+
     svg {
       font-size: 2rem;
     }
