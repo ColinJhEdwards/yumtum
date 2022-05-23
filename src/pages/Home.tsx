@@ -2,6 +2,7 @@ import React from "react";
 import RandomRecipes from "../components/RandomRecipes";
 import styled from "styled-components";
 import VeggieRecipes from "../components/VeggieRecipes";
+import VeganRecipes from "../components/VeganRecipes";
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +12,9 @@ const Home: React.FC = () => {
       </div>
       <div className="veggie">
         <VeggieRecipes />
+      </div>
+      <div className="vegan">
+        <VeganRecipes />
       </div>
     </StyledHome>
   );

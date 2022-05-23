@@ -5,7 +5,7 @@ import placeholder from "../images/placeholder.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
-interface VeggieRec {
+interface VeganRec {
   id: number;
   title: string;
   readyInMinutes: number;
@@ -15,29 +15,31 @@ interface VeggieRec {
   instructions: string;
 }
 
-const VeggieRecipes = () => {
+const VeganRecipes = () => {
   // store apiKey in variable, accessed from dotenv file
   const apiKey = process.env.REACT_APP_APIKEY;
-  const [recipes, setRecipes] = useState<VeggieRec[]>([]);
+  const [recipes, setRecipes] = useState<VeganRec[]>([]);
   // perform a fetch with url for Veggie recipes, giving function type of promise and inserting interface for results
-  const veggieSearch = async (): Promise<VeggieRec[]> => {
+  const veganSearch = async (): Promise<VeganRec[]> => {
     const results = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&tags=vegetarian&number=15`
+      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&tags=vegan&number=15`
     );
     return (await results.json()).recipes;
   };
 
   useEffect(() => {
     const setData = async () => {
-      const data = await veggieSearch();
+      const data = await veganSearch();
       setRecipes(data);
     };
     setData();
   }, []);
 
+  console.log(recipes);
+
   return (
     <StyledRandoms>
-      <h2>Vegetarian Recipes</h2>
+      <h2>Vegan Recipes</h2>
       <Splide
         options={{
           perPage: 5,
@@ -49,7 +51,7 @@ const VeggieRecipes = () => {
       >
         {recipes.map((r) => (
           <SplideSlide key={r.id}>
-            <Card className="veggiecards" key={r.id}>
+            <Card className="vegancards" key={r.id}>
               <img src={r.image || placeholder} alt={r.title} />
               <Gradient />
               <h2>{r.title}</h2>
@@ -109,4 +111,4 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
 `;
 
-export default VeggieRecipes;
+export default VeganRecipes;
