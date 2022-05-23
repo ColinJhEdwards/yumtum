@@ -50,7 +50,7 @@ const VeggieRecipes = () => {
         {recipes.map((r) => (
           <SplideSlide key={r.id}>
             <Card className="veggiecards" key={r.id}>
-              <img src={r.image || placeholder} alt={r.title} />
+              <img src={r.image || placeholder} alt={r.title} loading="lazy" />
               <Gradient />
               <h2>{r.title}</h2>
             </Card>
