@@ -14,6 +14,7 @@ interface RecipeInfo {
   summary: string;
   instructions: string;
   creditsText: string;
+  extendedIngredients: [{ original: string }];
 }
 
 function RecipeInstructions() {
@@ -71,6 +72,13 @@ function RecipeInstructions() {
           </p>
         </div>
       </div>
+      <div className="text">
+        <div className="ingredients">
+          {recipes?.extendedIngredients.map((i) => (
+            <p>{i.original}</p>
+          ))}
+        </div>
+      </div>
     </StyledRecipe>
   );
 }
@@ -99,6 +107,9 @@ const StyledRecipe = styled.div`
   .imageAndSummary {
     display: flex;
     justify-content: space-between;
+    img {
+      filter: saturate(130%);
+    }
     p {
       width: 50%;
       margin: auto;
