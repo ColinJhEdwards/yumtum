@@ -111,6 +111,7 @@ const Card = styled.div`
     height: 100%;
     object-fit: cover;
     transition: all ease 0.5s;
+    filter: saturate(150%);
   }
   h2 {
     width: 100%;

@@ -43,6 +43,7 @@ const StyledCard = styled.div`
     height: 100%;
     border-radius: 10px;
     transition: all ease 0.5s;
+    filter: saturate(150%);
   }
   h2 {
     font-size: 1.2rem;
