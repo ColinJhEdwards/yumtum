@@ -63,6 +63,7 @@ const VeggieRecipes = () => {
 
 const StyledRandoms = styled.div`
   margin: 2rem 0rem;
+
   h2 {
     margin: 2rem 0rem;
   }

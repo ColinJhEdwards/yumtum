@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import placeholder from "../images/placeholder.png";
 // using splide library to create slider effect
@@ -55,11 +56,17 @@ const RandomRecipes = () => {
       >
         {recipes.map((r) => (
           <SplideSlide key={r.id}>
-            <Card className="randomcards" key={r.id}>
-              <img src={r.image || placeholder} alt={r.title} loading="lazy" />
-              <Gradient />
-              <h2>{r.title}</h2>
-            </Card>
+            <NavLink to={`/recipe/${r.id}`}>
+              <Card className="randomcards" key={r.id}>
+                <img
+                  src={r.image || placeholder}
+                  alt={r.title}
+                  loading="lazy"
+                />
+                <Gradient />
+                <h2>{r.title}</h2>
+              </Card>
+            </NavLink>
           </SplideSlide>
         ))}
       </Splide>

@@ -19,7 +19,7 @@ const VeganRecipes = () => {
   // store apiKey in variable, accessed from dotenv file
   const apiKey = process.env.REACT_APP_APIKEY;
   const [recipes, setRecipes] = useState<VeganRec[]>([]);
-  // perform a fetch with url for Veggie recipes, giving function type of promise and inserting interface for results
+  // perform a fetch with url for Vegan recipes, giving function type of promise and inserting interface for results
   const veganSearch = async (): Promise<VeganRec[]> => {
     const results = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&tags=vegan&number=15`
