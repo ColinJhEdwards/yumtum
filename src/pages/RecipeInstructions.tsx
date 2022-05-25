@@ -73,8 +73,18 @@ function RecipeInstructions() {
         </div>
       </div>
       <div className="toggleBtns">
-        <button onClick={() => setToggle(true)}>Instructions</button>
-        <button onClick={() => setToggle(false)}>Ingredients</button>
+        <button
+          onClick={() => setToggle(true)}
+          className={toggle === true ? "active" : ""}
+        >
+          Instructions
+        </button>
+        <button
+          onClick={() => setToggle(false)}
+          className={toggle === false ? "active" : ""}
+        >
+          Ingredients
+        </button>
       </div>
       <div className="info">
         {toggle ? (
@@ -156,17 +166,23 @@ const StyledRecipe = styled.div`
     align-self: flex-start;
     button {
       padding: 1rem;
-      background: linear-gradient(35deg, orange, #7c6228);
-      border: none;
-      color: white;
+      background: none;
+      border: solid 1px orange;
+
+      color: black;
       margin: 1rem 1rem 2rem 0rem;
-      border-radius: 20px;
+      border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
       transition: all ease 0.5s;
       &:hover {
-        background: black;
+        box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
       }
+    }
+    .active {
+      background: linear-gradient(35deg, orange, #7c6228);
+      border: none;
+      color: white;
     }
   }
   .info {
