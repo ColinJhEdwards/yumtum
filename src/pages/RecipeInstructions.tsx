@@ -44,7 +44,6 @@ function RecipeInstructions() {
     setData();
   }, []);
 
-  console.log(recipes);
   return (
     <StyledRecipe>
       <div className="title">
@@ -87,7 +86,7 @@ function RecipeInstructions() {
           <div className="ingredients">
             <h2>Ingredients</h2>
             {recipes?.extendedIngredients.map((i) => (
-              <p>{i.original}</p>
+              <p key={i.original}>{i.original}</p>
             ))}
           </div>
         )}
@@ -106,6 +105,7 @@ const StyledRecipe = styled.div`
   align-items: center;
   .title {
     margin: 5rem 0rem 2rem 0rem;
+    text-align: center;
     h2 {
       font-size: 2.5rem;
     }
@@ -119,24 +119,29 @@ const StyledRecipe = styled.div`
   }
   .imageAndSummary {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
     img {
       filter: saturate(130%);
+      flex: 1 20rem;
     }
     p {
-      width: 50%;
-      margin: auto;
+      /* width: 50%; */
+      flex: 2 20rem;
+      margin: auto 2rem auto 2rem;
       line-height: 35px;
     }
   }
   .stats {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin: 4rem 0rem;
-    width: 70%;
+    width: 100%;
     .wrapper {
       display: flex;
       align-items: center;
+      margin: 2rem;
       svg {
         font-size: 2rem;
         color: orange;
