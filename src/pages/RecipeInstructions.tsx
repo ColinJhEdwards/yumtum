@@ -25,6 +25,7 @@ function RecipeInstructions() {
   const apiKey = process.env.REACT_APP_APIKEY;
   // useState for storing recipes with typescript interface
   const [recipes, setRecipes] = useState<RecipeInfo>();
+  const [toggle, setToggle] = useState<boolean>(true);
 
   const getRecipeInfo = async (
     recipeId: string | undefined
@@ -72,12 +73,24 @@ function RecipeInstructions() {
           </p>
         </div>
       </div>
-      <div className="text">
-        <div className="ingredients">
-          {recipes?.extendedIngredients.map((i) => (
-            <p>{i.original}</p>
-          ))}
-        </div>
+      <div className="toggleBtns">
+        <button onClick={() => setToggle(true)}>Instructions</button>
+        <button onClick={() => setToggle(false)}>Ingredients</button>
+      </div>
+      <div className="info">
+        {toggle ? (
+          <div className="instructions">
+            <h2>Instructions</h2>
+            {parse(`<p>${recipes?.instructions}</p>`)}
+          </div>
+        ) : (
+          <div className="ingredients">
+            <h2>Ingredients</h2>
+            {recipes?.extendedIngredients.map((i) => (
+              <p>{i.original}</p>
+            ))}
+          </div>
+        )}
       </div>
     </StyledRecipe>
   );
@@ -130,7 +143,35 @@ const StyledRecipe = styled.div`
       }
       p {
         margin-left: 0.5rem;
+        font-weight: bold;
       }
+    }
+  }
+  .toggleBtns {
+    align-self: flex-start;
+    button {
+      padding: 1rem;
+      background: linear-gradient(35deg, orange, #7c6228);
+      border: none;
+      color: white;
+      margin: 1rem 1rem 2rem 0rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all ease 0.5s;
+      &:hover {
+        background: black;
+      }
+    }
+  }
+  .info {
+    width: 100%;
+
+    p {
+      line-height: 30px;
+    }
+    li {
+      margin: 1rem 0rem;
     }
   }
 `;
