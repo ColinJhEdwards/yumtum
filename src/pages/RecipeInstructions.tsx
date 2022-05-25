@@ -4,6 +4,7 @@ import styled from "styled-components";
 import parse from "html-react-parser";
 import { GiChefToque, GiFoldedPaper } from "react-icons/gi";
 import { BiTimer } from "react-icons/bi";
+import { BsPeopleFill } from "react-icons/bs";
 
 interface RecipeInfo {
   id: number;
@@ -15,6 +16,7 @@ interface RecipeInfo {
   instructions: string;
   creditsText: string;
   extendedIngredients: [{ original: string }];
+  servings: number;
 }
 
 function RecipeInstructions() {
@@ -44,6 +46,8 @@ function RecipeInstructions() {
     setData();
   }, []);
 
+  console.log(recipes);
+
   return (
     <StyledRecipe>
       <div className="title">
@@ -58,6 +62,10 @@ function RecipeInstructions() {
         <div className="wrapper">
           <BiTimer />
           <p>Ready in: {recipes?.readyInMinutes} Minutes</p>
+        </div>
+        <div className="wrapper">
+          <BsPeopleFill />
+          <p>Feeds: {recipes?.servings || "N/A"}</p>
         </div>
         <div className="wrapper">
           <GiChefToque />
@@ -90,7 +98,12 @@ function RecipeInstructions() {
         {toggle ? (
           <div className="instructions">
             <h2>Instructions</h2>
-            {parse(`<p>${recipes?.instructions}</p>`)}
+            {parse(
+              `<p>${
+                recipes?.instructions ||
+                "No instructions available, we apologize for this inconvenience to your tummy."
+              }</p>`
+            )}
           </div>
         ) : (
           <div className="ingredients">

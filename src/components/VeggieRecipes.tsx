@@ -4,6 +4,7 @@ import placeholder from "../images/placeholder.png";
 // using splide library to create slider effect
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { NavLink } from "react-router-dom";
 
 interface VeggieRec {
   id: number;
@@ -49,11 +50,17 @@ const VeggieRecipes = () => {
       >
         {recipes.map((r) => (
           <SplideSlide key={r.id}>
-            <Card className="veggiecards" key={r.id}>
-              <img src={r.image || placeholder} alt={r.title} loading="lazy" />
-              <Gradient />
-              <h2>{r.title}</h2>
-            </Card>
+            <NavLink to={`/recipe/${r.id}`}>
+              <Card className="veggiecards" key={r.id}>
+                <img
+                  src={r.image || placeholder}
+                  alt={r.title}
+                  loading="lazy"
+                />
+                <Gradient />
+                <h2>{r.title}</h2>
+              </Card>
+            </NavLink>
           </SplideSlide>
         ))}
       </Splide>

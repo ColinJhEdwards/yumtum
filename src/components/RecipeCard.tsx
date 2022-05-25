@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import placeholder from "../images/placeholder.png";
 
@@ -16,11 +17,13 @@ const RecipeCard: FunctionComponent<PropInfo> = ({
 }: PropInfo) => {
   return (
     <Hide>
-      <StyledCard>
-        <img src={image || placeholder} alt={title} loading="lazy" />
-        <h2>{title}</h2>
-        <Gradient />
-      </StyledCard>
+      <NavLink to={`/recipe/${id}`}>
+        <StyledCard>
+          <img src={image || placeholder} alt={title} loading="lazy" />
+          <h2>{title}</h2>
+          <Gradient />
+        </StyledCard>
+      </NavLink>
     </Hide>
   );
 };

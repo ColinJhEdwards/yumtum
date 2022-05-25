@@ -7,6 +7,7 @@ import SearchRecipe from "./pages/SearchRecipe";
 import Cuisines from "./components/Cuisines";
 import SelectedCuisine from "./pages/SelectedCuisine";
 import RecipeInstructions from "./pages/RecipeInstructions";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         <Route path="/search/:value" element={<SearchRecipe />} />
         <Route path="/cuisine/:value" element={<SelectedCuisine />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
