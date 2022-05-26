@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import RecipeCard from "../components/RecipeCard";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animations";
 
 interface RecipeInfo {
   id: number;
@@ -35,7 +37,12 @@ function SelectedCuisine() {
 
   console.log(recipes);
   return (
-    <StyledRecipes>
+    <StyledRecipes
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="title">
         <h1>{value} Recipes</h1>
       </div>
@@ -53,14 +60,14 @@ function SelectedCuisine() {
   );
 }
 
-const StyledRecipes = styled.div`
+const StyledRecipes = styled(motion.section)`
   .title {
     display: flex;
     justify-content: center;
     margin: 3rem 0rem;
   }
   .content {
-    min-height: 40vh;
+    min-height: 60vh;
     width: 90%;
     margin: auto;
     display: flex;

@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { pageAnimation } from "../animations";
 import NoResultMessage from "../components/NoResultMessage";
 import RecipeCard from "../components/RecipeCard";
 
@@ -40,7 +42,12 @@ function SearchRecipe() {
   }, [value]);
 
   return (
-    <StyledRecipes>
+    <StyledRecipes
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="title">
         <h1>{value} Recipes</h1>
       </div>
@@ -62,7 +69,7 @@ function SearchRecipe() {
   );
 }
 
-const StyledRecipes = styled.div`
+const StyledRecipes = styled(motion.section)`
   .title {
     display: flex;
     justify-content: center;

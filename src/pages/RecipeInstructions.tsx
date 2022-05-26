@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+// summary and instructions are stored as html in the api using this npm library to parse it. Using the react feature dangerouslySetInnerHTML can lead to XXS issues
 import parse from "html-react-parser";
 import { GiChefToque, GiFoldedPaper } from "react-icons/gi";
 import { BiTimer } from "react-icons/bi";
 import { BsPeopleFill } from "react-icons/bs";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animations";
 
 interface RecipeInfo {
   id: number;
@@ -49,7 +52,12 @@ function RecipeInstructions() {
   console.log(recipes);
 
   return (
-    <StyledRecipe>
+    <StyledRecipe
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="title">
         <h2>{recipes?.title}</h2>
       </div>
@@ -118,7 +126,7 @@ function RecipeInstructions() {
   );
 }
 
-const StyledRecipe = styled.div`
+const StyledRecipe = styled(motion.section)`
   min-height: 60vh;
   width: 80%;
   margin: auto;

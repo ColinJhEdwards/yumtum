@@ -3,24 +3,31 @@ import RandomRecipes from "../components/RandomRecipes";
 import styled from "styled-components";
 import VeggieRecipes from "../components/VeggieRecipes";
 import VeganRecipes from "../components/VeganRecipes";
+import { fade, pageAnimation } from "../animations";
+import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
   return (
-    <StyledHome>
-      <div className="random">
+    <StyledHome
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
+      <motion.div variants={fade} className="random">
         <RandomRecipes />
-      </div>
-      <div className="veggie">
+      </motion.div>
+      <motion.div variants={fade} className="veggie">
         <VeggieRecipes />
-      </div>
-      <div className="vegan">
+      </motion.div>
+      <motion.div variants={fade} className="vegan">
         <VeganRecipes />
-      </div>
+      </motion.div>
     </StyledHome>
   );
 };
 
-const StyledHome = styled.section`
+const StyledHome = styled(motion.section)`
   min-height: 90vh;
   width: 90%;
   margin: auto;
