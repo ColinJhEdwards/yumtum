@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import RecipeCard from "../components/RecipeCard";
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animations";
+import { fade, pageAnimation } from "../animations";
 
 interface RecipeInfo {
   id: number;
@@ -46,7 +46,7 @@ function SelectedCuisine() {
       <div className="title">
         <h1>{value} Recipes</h1>
       </div>
-      <div className="content">
+      <motion.div variants={fade} className="content">
         {recipes.map((rec) => (
           <RecipeCard
             key={rec.id}
@@ -55,7 +55,7 @@ function SelectedCuisine() {
             title={rec.title}
           />
         ))}
-      </div>
+      </motion.div>
     </StyledRecipes>
   );
 }

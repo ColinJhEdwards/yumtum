@@ -17,7 +17,9 @@ const App: React.FC = () => {
       <Nav />
       <InputBar />
       <Cuisines />
+      {/* AnimatePresence is used for animating components when they are removed from the react tree */}
       <AnimatePresence exitBeforeEnter>
+        {/* adding location and key using useLocation is required for animatePresence to work */}
         <Routes location={location} key={location.key}>
           <Route path="/" element={<Home />} />
           <Route path="/recipe/:id" element={<RecipeInstructions />} />

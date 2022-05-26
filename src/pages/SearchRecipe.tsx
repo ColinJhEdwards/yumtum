@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { pageAnimation } from "../animations";
+import { fade, pageAnimation } from "../animations";
 import NoResultMessage from "../components/NoResultMessage";
 import RecipeCard from "../components/RecipeCard";
 
@@ -51,7 +51,7 @@ function SearchRecipe() {
       <div className="title">
         <h1>{value} Recipes</h1>
       </div>
-      <div className="content">
+      <motion.div variants={fade} className="content">
         {recipes.length > 0 ? (
           recipes.map((rec) => (
             <RecipeCard
@@ -64,7 +64,7 @@ function SearchRecipe() {
         ) : (
           <NoResultMessage searchValue={value} />
         )}
-      </div>
+      </motion.div>
     </StyledRecipes>
   );
 }
@@ -76,7 +76,7 @@ const StyledRecipes = styled(motion.section)`
     margin: 3rem 0rem;
   }
   .content {
-    min-height: 40vh;
+    min-height: 60vh;
     width: 90%;
     margin: auto;
     display: flex;
