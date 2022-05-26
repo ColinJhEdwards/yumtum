@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import placeholder from "../images/placeholder.png";
+import { motion } from "framer-motion";
 // using splide library to create slider effect
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { fade } from "../animations";
 
 interface RandomRec {
   id: number;
@@ -38,18 +40,20 @@ const RandomRecipes = () => {
 
   return (
     <StyledRandoms>
-      <div className="text">
+      <motion.div variants={fade} className="text">
         <h2>Popular Recipes</h2>
         <p id="bottom">
           Why not try out one of these popular recipes, freshly made by our
           Yumtum users.
         </p>
-      </div>
+      </motion.div>
       <Splide
         options={{
           perPage: 3,
           arrows: true,
           pagination: true,
+          fixedHeight: "528px",
+          fixedWidth: "400px",
           drag: "free",
           gap: "3rem",
         }}
@@ -57,7 +61,7 @@ const RandomRecipes = () => {
         {recipes.map((r) => (
           <SplideSlide key={r.id}>
             <NavLink to={`/recipe/${r.id}`}>
-              <Card className="randomcards" key={r.id}>
+              <Card variants={fade} className="randomcards" key={r.id}>
                 <img
                   src={r.image || placeholder}
                   alt={r.title}
@@ -90,7 +94,7 @@ const StyledRandoms = styled.div`
   }
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   cursor: grab;
   min-height: 25rem;
   border-radius: 10px;
@@ -107,8 +111,8 @@ const Card = styled.div`
     border-radius: 10px;
     position: absolute;
     left: 0;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
     transition: all ease 0.5s;
     filter: saturate(150%);
