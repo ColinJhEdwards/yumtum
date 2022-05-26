@@ -45,7 +45,7 @@ const VeganRecipes = () => {
         options={{
           perPage: 5,
           arrows: true,
-          fixedWidth: "292px",
+          fixedWidth: "300px",
           fixedHeight: "450px",
           drag: "free",
           gap: "3rem",

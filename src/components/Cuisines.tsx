@@ -83,6 +83,22 @@ const StyledIcons = styled.div`
       margin-top: 0.5rem;
     }
   }
+  @media (max-width: 620px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 365px) {
+    .icon {
+      margin: 1rem;
+      width: 70px;
+      height: 70px;
+      svg {
+        font-size: 1.4rem;
+      }
+      p {
+        font-size: 0.7rem;
+      }
+    }
+  }
 `;
 
 export default Cuisines;

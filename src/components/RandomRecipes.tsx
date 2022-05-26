@@ -52,8 +52,8 @@ const RandomRecipes = () => {
           perPage: 3,
           arrows: true,
           pagination: true,
-          fixedHeight: "528px",
-          fixedWidth: "400px",
+          fixedHeight: "450px",
+          fixedWidth: "528px",
           drag: "free",
           gap: "3rem",
         }}
