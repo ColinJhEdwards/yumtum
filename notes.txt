@@ -1,0 +1,14 @@
+Issues I ran into with yumtum (but overcame!)
+
+using typescript in general
+
+using typescript on functions performing an api call, how to set up an interface and the correct function type to use.
+
+the "summary" of a recipe listed in the api results is html code, had to research what "dangerouslySetInnerHTML" was and find an alternative to avoid
+cross site scripting(Xss) which i dont believe will be an issue for this website but I'd prefer to practice good habits
+
+styling the recipe cards to have the text over the image with a linear gradient background to make the text pop
+
+using useParams from react router dom to perform api calls based off of info in the url
+
+figuring out how to maintain the width of images on splide carousel
