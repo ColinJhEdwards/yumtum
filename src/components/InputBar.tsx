@@ -74,6 +74,13 @@ const StyledSearch = styled.section`
       cursor: pointer;
     }
   }
+  @media (max-width: 395px) {
+    .input {
+      input {
+        font-size: 1rem;
+      }
+    }
+  }
 `;
 
 export default InputBar;
