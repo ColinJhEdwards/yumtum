@@ -41,3 +41,11 @@ export const shortFade = {
     transition: { duration: 0.2 },
   },
 };
+
+export const lineGrow = {
+  hidden: { width: "0%" },
+  show: {
+    width: "100%",
+    transition: { duration: 0.5 },
+  },
+};

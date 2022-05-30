@@ -7,7 +7,7 @@ import { GiChefToque, GiFoldedPaper } from "react-icons/gi";
 import { BiTimer } from "react-icons/bi";
 import { BsPeopleFill } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animations";
+import { pageAnimation, fade, lineGrow } from "../animations";
 
 interface RecipeInfo {
   id: number;
@@ -58,15 +58,15 @@ function RecipeInstructions() {
       animate="show"
       exit="exit"
     >
-      <div className="title">
+      <motion.div className="title" variants={fade}>
         <h2>{recipes?.title}</h2>
-      </div>
-      <div className="line"></div>
-      <div className="imageAndSummary">
+      </motion.div>
+      <motion.div className="line" variants={lineGrow}></motion.div>
+      <motion.div className="imageAndSummary" variants={fade}>
         <img src={recipes?.image} alt={recipes?.title} />
         {parse(`<p>${recipes?.summary}</p>`)}
-      </div>
-      <div className="stats">
+      </motion.div>
+      <motion.div className="stats" variants={fade}>
         <div className="wrapper">
           <BiTimer />
           <p>Ready in: {recipes?.readyInMinutes} Minutes</p>
@@ -87,8 +87,8 @@ function RecipeInstructions() {
             </a>
           </p>
         </div>
-      </div>
-      <div className="toggleBtns">
+      </motion.div>
+      <motion.div className="toggleBtns" variants={fade}>
         <button
           onClick={() => setToggle(true)}
           className={toggle === true ? "active" : ""}
@@ -101,8 +101,8 @@ function RecipeInstructions() {
         >
           Ingredients
         </button>
-      </div>
-      <div className="info">
+      </motion.div>
+      <motion.div className="info" variants={fade}>
         {toggle ? (
           <div className="instructions">
             <h2>Instructions</h2>
@@ -121,7 +121,7 @@ function RecipeInstructions() {
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
     </StyledRecipe>
   );
 }
