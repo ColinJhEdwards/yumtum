@@ -216,6 +216,19 @@ const StyledRecipe = styled(motion.section)`
       margin: 1rem 0rem;
     }
   }
+  @media (max-width: 560px) {
+    .imageAndSummary {
+      img {
+        width: 70%;
+      }
+      p {
+        margin: 1rem;
+      }
+    }
+    .stats {
+      margin: 2rem 0rem;
+    }
+  }
 `;
 
 export default RecipeInstructions;
