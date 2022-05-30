@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+// because of how the url works for github, HashRouter can be used to work around it defaulting to colinjhedwards.github.io and instead link to colinjhedwards.github.io/#
+// this isnt the only solution but is the quickest and easiest
 import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(

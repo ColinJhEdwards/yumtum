@@ -43,9 +43,19 @@ const StyledCard = styled(motion.div)`
   p {
     font-weight: bold;
     color: #5a5a5a;
+    text-align: center;
   }
   span {
     color: orange;
+  }
+  @media (max-width: 1300px) {
+    width: 50%;
+  }
+  @media (max-width: 770px) {
+    width: 80%;
+  }
+  @media (max-width: 485px) {
+    width: 100%;
   }
 `;
 
