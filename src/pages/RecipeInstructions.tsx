@@ -8,6 +8,8 @@ import { BiTimer } from "react-icons/bi";
 import { BsPeopleFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { pageAnimation, fade, lineGrow } from "../animations";
+// when clicking on a recipe the page will scroll to users previous scrolled location. This component makes the user scroll to the top when mounted.
+import ScrollTop from "../components/ScrollTop";
 
 interface RecipeInfo {
   id: number;
@@ -122,6 +124,7 @@ function RecipeInstructions() {
           </div>
         )}
       </motion.div>
+      <ScrollTop />
     </StyledRecipe>
   );
 }
