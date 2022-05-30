@@ -8,6 +8,7 @@ import { BiTimer } from "react-icons/bi";
 import { BsPeopleFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { pageAnimation, fade, lineGrow } from "../animations";
+import placeholder from "../images/placeholder.png";
 // when clicking on a recipe the page will scroll to users previous scrolled location. This component makes the user scroll to the top when mounted.
 import ScrollTop from "../components/ScrollTop";
 
@@ -65,7 +66,7 @@ function RecipeInstructions() {
       </motion.div>
       <motion.div className="line" variants={lineGrow}></motion.div>
       <motion.div className="imageAndSummary" variants={fade}>
-        <img src={recipes?.image} alt={recipes?.title} />
+        <img src={recipes?.image || placeholder} alt={recipes?.title} />
         {parse(`<p>${recipes?.summary}</p>`)}
       </motion.div>
       <motion.div className="stats" variants={fade}>
