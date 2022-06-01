@@ -6,6 +6,7 @@
 - [Deployed Application](###deployed-Application)
 - [User Story](#user-Story)
 - [Installation](#installation)
+- [Technology Used](#technology-used)
 - [Screenshots](#screenshots)
 - [Contributors](#contributors)
 
